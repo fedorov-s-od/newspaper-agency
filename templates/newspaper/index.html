@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Newspaper Agency Home</h1>
+    <p>Welcome to Newspaper Agency!</p>
+    <p>The Newspaper Agency has the following record counts:</p>
+    <ul>
+        <li><strong>Newspaper:</strong> {{ num_newspapers }}</li>
+        {% if user.is_authenticated %}
+            <li><strong>Assigned newspapers:</strong> {{ num_assigned_newspaper }}</li>
+        {% endif %}
+    </ul>
+
+
+    {% if user.is_authenticated %}
+      <a href="#" class="btn btn-success">Create newspaper</a>
+    {% endif %}
+
+
+{% endblock %}
