@@ -2,16 +2,6 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 
 
-TOPICS = (
-        ('Politics', 'Politics'),
-        ('Crime', 'Crime'),
-        ('Business', 'Business'),
-        ('Art', 'Art'),
-        ('Trade', 'Trade'),
-        ('Weather', 'Weather'),
-    )
-
-
 class Newspaper(models.Model):
     title = models.CharField(max_length=255)
     content = models.TextField()
@@ -24,7 +14,7 @@ class Newspaper(models.Model):
 
 
 class Topic(models.Model):
-    name = models.CharField(max_length=50, choices=TOPICS)
+    name = models.CharField(max_length=50)
 
     def __str__(self):
         return self.name

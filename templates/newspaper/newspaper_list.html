@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>
+    Newspaper List
+    <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-primary link-to-page">
+      Create
+    </a>
+  </h1>
+
+  {% if newspaper_list %}
+    <form method="GET" class="m-3" action="{% url 'newspaper:newspaper-list' %}">
+        {{ search_form }}
+        <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+    
+    {% for newspaper in newspaper_list %}
+        <div>
+            <h2><a href="{% url 'newspaper:newspaper-detail' newspaper.id %}">{{ newspaper.title }}</a></h2>
+            <p>Topic: {{ newspaper.topic }}</p>
+            <p>Publishers: {{ newspaper.publishers }}</p>
+            <p>Created on: {{ newspaper.publication_date }}</p>
+        </div>
+        <hr>
+    {% endfor %}
+
+  {% else %}
+      <p>There are no newspapers yet.</p>
+  {% endif %}
+{% endblock %}

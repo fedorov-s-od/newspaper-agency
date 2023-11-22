@@ -1,9 +1,12 @@
 from django.db.models.query import Q
 from django.shortcuts import render
 from django.views import generic
+from django.urls import reverse_lazy
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 from .models import Newspaper
 from .forms import SearchForm
+from .forms import SearchForm, NewspaperCreateForm
 
 
 def index(request):
@@ -36,3 +39,13 @@ class NewspaperListView(generic.ListView):
         context = super().get_context_data(**kwargs)
         context['search_form'] = SearchForm(self.request.GET)
         return context
+
+
+class NewspaperCreateView(LoginRequiredMixin, generic.CreateView):
+    model = Newspaper
+    form_class = NewspaperCreateForm
+    success_url = reverse_lazy("newspaper:newspaper-list")
+
+
+class NewspaperDetailView(generic.DetailView):
+    model = Newspaper
