@@ -5,9 +5,10 @@
 <div class="container">
     <div class="col">
         <div class="m-3">
-            <h1>{{ newspaper.title }}</h1>
-            <p class="text-muted">{{ newspaper.publishers }} at {{ newspaper.publication_date }}</p>
-            <p>{{ newspaper.content }}</p>
+          <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary mb-4 w-25">Back</a>
+          <h1>{{ newspaper.title }}</h1>
+          <p class="text-muted">{{ newspaper.publishers_to_str }} at {{ newspaper.published_date }}</p>
+          <p>{{ newspaper.content_to_html|safe }}</p>
         </div>
     </div>
 </div>

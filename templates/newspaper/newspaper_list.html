@@ -16,10 +16,10 @@
     
     {% for newspaper in newspaper_list %}
         <div>
-            <h2><a href="{% url 'newspaper:newspaper-detail' newspaper.id %}">{{ newspaper.title }}</a></h2>
-            <p>Topic: {{ newspaper.topic }}</p>
-            <p>Publishers: {{ newspaper.publishers }}</p>
-            <p>Created on: {{ newspaper.publication_date }}</p>
+          <h2><a href="{% url 'newspaper:newspaper-detail' newspaper.id %}">{{ newspaper.title }}</a></h2>
+          <p>Topic: {{ newspaper.topic }}</p>
+          <p>Publishers: {{ newspaper.publishers_to_str }}</p>
+          <p>Created on: {{ newspaper.published_date }}</p>
         </div>
         <hr>
     {% endfor %}
