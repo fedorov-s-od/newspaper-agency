@@ -1,7 +1,39 @@
-body {
-    margin-top: 20px;
-}
 .link-to-page {
     float: right;
     margin: 0 2px 0 2px;
+}
+
+html, body, .container-fluid, .row, #sidebar {
+    min-height: 100vh;
+}
+
+#sidebar {
+    background: #7bcf7d;
+    padding-top: 20px;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+}
+
+#content {
+    background: #ecffea;
+    padding: 50px;
+}
+
+.list-group-item {
+    background: #e4fbc8;
+    border: 1px solid #7bcf7d;
+}
+
+.list-group-item a {
+    color: black;
+}
+
+.list-group-item:hover {
+    background: #7bd34e;
+}
+
+#newspaper-list-create {
+    font-size: 18px;
+    font-weight: bold;
 }
