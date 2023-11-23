@@ -638,14 +638,6 @@
   }
 },
 {
-  "model": "sessions.session",
-  "pk": "m5j6scjoxfgn42fx3h2d7y1x4i07s2aj",
-  "fields": {
-    "session_data": ".eJxVjMEOwiAQRP-FsyHALu3Wo3e_gQC7StXQpLQn47_bJj3oaZJ5b-atQlyXEtYmcxhZnZVVp98uxfyUugN-xHqfdJ7qMo9J74o-aNPXieV1Ody_gxJb2dZD6oD6iEa88HBLnIG2zODZInFviUDAS2JMnXNCOQKCQWcNejZGfb7wrTeg:1r5m2e:Z5OEqAJDVKRdNKq3O8M5Cu7fWiXZbGN13ffEE_MgdNE",
-    "expire_date": "2023-12-06T12:09:16.095Z"
-  }
-},
-{
   "model": "newspaper.newspaper",
   "pk": 1,
   "fields": {
@@ -708,6 +700,20 @@
     "topic": 4,
     "publishers": [
       11
+    ]
+  }
+},
+{
+  "model": "newspaper.newspaper",
+  "pk": 6,
+  "fields": {
+    "title": "The concept of crime: criminal codes",
+    "content": "Criminal behaviour is defined by the laws of particular jurisdictions, and there are sometimes vast differences between and even within countries regarding what types of behaviour are prohibited. Conduct that is lawful in one country or jurisdiction may be criminal in another, and activity that amounts to a trivial infraction in one jurisdiction may constitute a serious crime elsewhere. \\n\\nChanging times and social attitudes may lead to changes in criminal law, so that behaviour that was once criminal may become lawful. For example, abortion, once prohibited except in the most unusual circumstances, is now lawful in many countries, as is homosexual behaviour in private between consenting adults in most Western countries, though it remains a serious offense in some parts of the world. Once criminal, suicide and attempted suicide have been removed from the scope of criminal law in some jurisdictions. \\n\\nIndeed, in the U.S. state of Oregon the Death with Dignity Act (passed in 1997) allows terminally ill individuals to end their lives through the use of lethal medications prescribed by a physician. Nonetheless, the general trend has been toward increasing the scope of criminal law rather than decreasing it, and it has been more common to find that statutes create new criminal offenses rather than abolishing existing ones. New technologies have given rise to new opportunities for their abuse, which has led to the creation of new legal restrictions. Just as the invention of the motor vehicle led to the development of a whole body of criminal laws designed to regulate its use, so the widening use of computers and especially the Internet has created the need to legislate against a variety of new abuses and frauds—or old frauds committed in new ways.",
+    "published_date": "2023-01-01T00:00:00Z",
+    "topic": 2,
+    "publishers": [
+      2,
+      3
     ]
   }
 },
