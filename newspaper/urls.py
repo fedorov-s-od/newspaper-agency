@@ -3,7 +3,7 @@ from django.urls import path, re_path
 from .views import (
     index, NewspaperListView, NewspaperCreateView, NewspaperDetailView,
     NewspaperDeleteView, NewspaperUpdateView, pages, login_view, register_user,
-    TopicListView, RedactorDetailView, RedactorListView
+    TopicListView, RedactorDetailView, RedactorListView, RedactorUpdateView
 )
 
 from django.contrib.auth.views import LogoutView
@@ -30,6 +30,11 @@ urlpatterns = [
         "redactors/<int:pk>/",
         RedactorDetailView.as_view(),
         name="redactor-detail",
+    ),
+    path(
+        "profile/",
+        RedactorUpdateView.as_view(),
+        name="profile",
     ),
     path(
         "newspaper/create/",

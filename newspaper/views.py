@@ -133,6 +133,16 @@ class RedactorDetailView(generic.DetailView):
     model = get_user_model()
 
 
+class RedactorUpdateView(LoginRequiredMixin, generic.UpdateView):
+    model = get_user_model()
+    fields = ('first_name', 'last_name', 'email')
+    template_name = 'newspaper/profile.html'
+    success_url = reverse_lazy("newspaper:profile")
+
+    def get_object(self, queryset=None):
+        return self.request.user
+
+
 def login_view(request):
     form = LoginForm(request.POST or None)
 
