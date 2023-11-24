@@ -1,0 +1,24 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="col">
+        <div class="m-3">
+            <h1 class="text-center mb-5">
+                {{ newspaper.title }}
+                <a href="{% url 'newspaper:newspaper-list' %}" class="btn btn-secondary"><i class="fa fa-arrow-left"></i></a>
+                {% if user in newspaper.publishers.all or user.is_superuser %}
+                    <a href="{% url 'newspaper:newspaper-update' newspaper.id %}" class="btn btn-warning"><i class="fa fa-pencil-square-o"></i></a>
+                {% endif %}
+                {% if user.is_superuser %}
+                    <a href="{% url 'newspaper:newspaper-delete' newspaper.id %}" class="btn btn-danger"><i class="fa fa-trash"></i></a>
+                {% endif %}
+            </h1>
+            <p class="text-muted font-weight-bold">{{ newspaper.publishers_to_str }} at {{ newspaper.published_date }}</p>
+            <p>{{ newspaper.content_to_html|safe }}</p>
+        </div>
+    </div>
+</div>
+{% endblock %}
+

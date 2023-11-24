@@ -1,0 +1,14 @@
+#newspaper-list-create {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.create-form label {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.form-control {
+    border: 1px solid gray !important;
+    padding-left: 15px !important;
+}

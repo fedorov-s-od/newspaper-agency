@@ -1,0 +1,31 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="col">
+        <div class="m-3">
+            <h1 class="text-center mb-5">Profile</h1>
+
+            <p class="font-weight-bold">Username: {{ redactor.username }}</p>
+            <p class="font-weight-bold">Experience: {{ redactor.years_of_experience }}</p>
+
+            <form class="create-form" action="" method="post">
+                {% csrf_token %}
+                {{ form|crispy }}
+                <input type="submit" value="Submit" class="btn btn-primary">
+            </form>
+
+            <hr>
+            <h3>Newspapers</h3>
+            <ul class="list-group">
+                {% for newspaper in redactor.newspapers.all %}
+                    <li class="list-group-item">
+                        <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}">{{ newspaper.title }} | {{ newspaper.topic.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
