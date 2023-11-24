@@ -1,8 +1,11 @@
 from django.urls import path, re_path
 
-from .views import (index, NewspaperListView, NewspaperCreateView,
-                    NewspaperDetailView, NewspaperDeleteView,
-                    NewspaperUpdateView, pages, login_view, register_user)
+from .views import (
+    index, NewspaperListView, NewspaperCreateView, NewspaperDetailView,
+    NewspaperDeleteView, NewspaperUpdateView, pages, login_view, register_user,
+    TopicListView, RedactorDetailView, RedactorListView
+)
+
 from django.contrib.auth.views import LogoutView
 
 
@@ -12,6 +15,21 @@ urlpatterns = [
         "newspapers/",
         NewspaperListView.as_view(),
         name="newspaper-list",
+    ),
+    path(
+        "topics/",
+        TopicListView.as_view(),
+        name="topic-list",
+    ),
+    path(
+        "redactors/",
+        RedactorListView.as_view(),
+        name="redactor-list",
+    ),
+    path(
+        "redactors/<int:pk>/",
+        RedactorDetailView.as_view(),
+        name="redactor-detail",
     ),
     path(
         "newspaper/create/",

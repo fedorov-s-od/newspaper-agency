@@ -1,0 +1,19 @@
+{% extends "layouts/base.html" %}
+{% load crispy_forms_filters %}
+
+{% block content %}
+  <h1 class="text-center pb-5">
+    Topic List
+  </h1>
+
+  <ul>
+  {% for topic in topic_list %}
+    <li>
+        <a href="{% url 'newspaper:newspaper-list' %}?by_topic={{ topic.pk }}">{{ topic }}</a>
+    </li>
+  {% empty %}
+    <p>There are no topics yet.</p>
+  {% endfor %}
+  </ul>
+
+{% endblock %}

@@ -32,8 +32,7 @@ def index(request):
 @login_required(login_url="/login/")
 def pages(request):
     context = {}
-    # All resource paths end in .html.
-    # Pick out the html file name from the url. And load that template.
+
     try:
 
         load_template = request.path.split('/')[-1]
@@ -101,6 +100,37 @@ class NewspaperUpdateView(LoginRequiredMixin, generic.UpdateView):
 class NewspaperDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Newspaper
     success_url = reverse_lazy("newspaper:newspaper-list")
+
+
+class TopicListView(generic.ListView):
+    model = Topic
+    context_object_name = "topic_list"
+    template_name = "newspaper/topic_list.html"
+
+
+class RedactorListView(generic.ListView):
+    model = get_user_model()
+    context_object_name = "redactor_list"
+    template_name = "newspaper/redactor_list.html"
+    paginate_by = 5
+
+    def get_queryset(self):
+        queryset = super().get_queryset()
+        search_query = self.request.GET.get('search', None)
+
+        if search_query:
+            queryset = queryset.filter(username__icontains=search_query)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['search_form'] = SearchForm(self.request.GET)
+        return context
+
+
+class RedactorDetailView(generic.DetailView):
+    model = get_user_model()
 
 
 def login_view(request):

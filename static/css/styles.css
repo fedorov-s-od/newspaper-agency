@@ -1,16 +1,3 @@
-.list-group-item {
-    background: #e4fbc8;
-    border: 1px solid #7bcf7d;
-}
-
-.list-group-item a {
-    color: black;
-}
-
-.list-group-item:hover {
-    background: #7bd34e;
-}
-
 #newspaper-list-create {
     font-size: 18px;
     font-weight: bold;

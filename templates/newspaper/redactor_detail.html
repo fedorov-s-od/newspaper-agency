@@ -1,0 +1,27 @@
+{% extends 'layouts/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="container">
+    <div class="col">
+        <div class="m-3">
+            <h1 class="text-center mb-5">{{ redactor.username }}</h1>
+
+            <p>First Name: {{ redactor.first_name|default:"-" }}</p>
+            <p>Last Name: {{ redactor.last_name|default:"-" }}</p>
+            <p>Email: {{ redactor.email|default:"-" }}</p>
+            <p>Experiens: {{ redactor.years_of_experience }}</p>
+
+            <hr>
+            <h3>Newspapers</h3>
+            <ul class="list-group">
+                {% for newspaper in redactor.newspapers.all %}
+                    <li class="list-group-item">
+                        <a href="{% url 'newspaper:newspaper-detail' pk=newspaper.pk %}">{{ newspaper.title }} | {{ newspaper.topic.name }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
