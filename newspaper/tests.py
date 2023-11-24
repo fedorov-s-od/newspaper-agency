@@ -6,19 +6,19 @@ from django.urls import reverse
 from .forms import SearchForm
 
 
-class HomePageTests(TestCase):
+class RedactorListViewTests(TestCase):
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="admin.user",
-            years_of_experiens=5,
+            years_of_experience=5,
             first_name="Admin",
             last_name="User",
             password="1qazcde3",
         )
         self.client.force_login(self.user)
 
-        self.redactor1 = get_user_model().objects.create(username='testuser1', first_name='John', last_name='Doe', years_of_experiens=1)
-        self.redactor2 = get_user_model().objects.create(username='testuser2', first_name='Jane', last_name='Doe', years_of_experiens=2)
+        self.redactor1 = get_user_model().objects.create(username='testuser1', first_name='John', last_name='Doe', years_of_experience=1)
+        self.redactor2 = get_user_model().objects.create(username='testuser2', first_name='Jane', last_name='Doe', years_of_experience=2)
 
     def test_search_view_with_results(self):
         search_query = 'testuser1'
