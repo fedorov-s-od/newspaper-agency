@@ -12,7 +12,8 @@ from django.contrib.auth import authenticate, login, get_user_model
 from django.template import loader
 
 from .models import Newspaper, Topic
-from .forms import SearchForm, NewspaperCreateForm, LoginForm, SignUpForm
+from .forms import (SearchForm, NewspaperCreateForm,
+                    LoginForm, SignUpForm, FilterTopicForm)
 
 
 @login_required(login_url="/login/")
@@ -53,16 +54,6 @@ def pages(request):
         html_template = loader.get_template('home/page-500.html')
         return HttpResponse(html_template.render(context, request))
 
-    # def index(request):
-    #     """View function for the home page of the site."""
-
-    #     context = {
-    #         "num_newspapers": Newspaper.objects.count(),
-    #         "num_assigned_newspaper": Newspaper.objects.filter(publishers=request.user.pk).count() if request.user.is_authenticated else 0,
-    #     }
-
-    # return render(request, "newspaper/index.html", context=context)
-
 
 class NewspaperListView(generic.ListView):
     model = Newspaper
@@ -77,11 +68,17 @@ class NewspaperListView(generic.ListView):
         if search_query:
             queryset = queryset.filter(Q(title__icontains=search_query) | Q(content__icontains=search_query))
 
+        filter_query = self.request.GET.get('by_topic', None)
+
+        if filter_query:
+            queryset = queryset.filter(topic=filter_query)
+
         return queryset
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['search_form'] = SearchForm(self.request.GET)
+        context['filter_form'] = FilterTopicForm(self.request.GET)
         return context
 
 

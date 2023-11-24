@@ -34,27 +34,34 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-sm-2" id="sidebar">
 
-                {% block sidebar %}
-                    {% include "includes/sidebar.html" %}
-                {% endblock %}
-
-            </div>
-            <div class="col-sm-10 " id="content">
-
-                {% block content %}{% endblock %}
-
-                {% block pagination %}
-                    {% include "includes/pagination.html" %}
-                {% endblock %}
-
-            </div>
+    {% include 'includes/navigation.html' %}
+    <header class="header-2">
+        <div class="page-header min-vh-25 relative" style="background-image: url('/static/assets/img/bg1.jpg')">
+          <span class="mask bg-gradient-primary opacity-4"></span>
         </div>
+    </header>
+
+    <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6" id="content">
+
+        {% block content %}{% endblock %}
+
+        {% block pagination %}
+            {% include "includes/pagination.html" %}
+        {% endblock %}
+
     </div>
+
+    <footer class="footer pt-5 mt-5">
+        <div class="container">
+          <div class="text-center">
+            <p class="text-dark my-4 text-sm font-weight-normal">
+              &copy; <a href="https://bit.ly/3fKQZaL" target="_blank">Newspaper Agency</a> - 2023
+            </p>
+          </div>
+
+        </div>
+    </footer>
 </body>
 
 </html>
-

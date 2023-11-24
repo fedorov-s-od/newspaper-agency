@@ -11,25 +11,24 @@
     {% endif %}
   </h1>
 
-  {% if newspaper_list %}
-    <form method="GET" class="m-3" action="{% url 'newspaper:newspaper-list' %}">
-        {{ search_form|crispy }}
-        <button type="submit" class="btn btn-sm btn-primary">Search</button>
-    </form>
+  <form method="GET" class="m-3" action="{% url 'newspaper:newspaper-list' %}">
+    {{ search_form|crispy }}
+    {{ filter_form|crispy }}
+    <button type="submit" class="btn btn-sm btn-primary">Search</button>
+  </form>
+  <hr>
+
+  {% for newspaper in newspaper_list %}
+    <div>
+      <h3><a href="{% url 'newspaper:newspaper-detail' newspaper.id %}">{{ newspaper.title }}</a></h3>
+      <p class="font-weight-bold">Topic: {{ newspaper.topic }}</p>
+      <p>Publishers: {{ newspaper.publishers_to_str }}</p>
+      <p class="text-muted">Created on: {{ newspaper.published_date }}</p>
+    </div>
+
     <hr>
-    
-    {% for newspaper in newspaper_list %}
-        <div>
-            <h3><a href="{% url 'newspaper:newspaper-detail' newspaper.id %}">{{ newspaper.title }}</a></h3>
-            <p class="font-weight-bold">Topic: {{ newspaper.topic }}</p>
-            <p>Publishers: {{ newspaper.publishers_to_str }}</p>
-            <p class="text-muted">Created on: {{ newspaper.published_date }}</p>
-        </div>
-        <hr>
-    {% endfor %}
+  {% empty %}
+    <p>There are no newspapers yet.</p>
+  {% endfor %}
 
-  {% else %}
-      <p>There are no newspapers yet.</p>
-  {% endif %}
 {% endblock %}
-

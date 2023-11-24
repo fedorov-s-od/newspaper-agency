@@ -3,11 +3,19 @@ from django.forms.widgets import SelectDateWidget
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm
 
-from .models import Newspaper
-
+from .models import Newspaper, Topic
 
 class SearchForm(forms.Form):
     search = forms.CharField(label='Search', required=False)
+
+
+class FilterTopicForm(forms.Form):
+    by_topic = forms.ChoiceField(
+        choices=[('', 'All topics')] + [(topic.id, topic.name) for topic in Topic.objects.all()],
+        required=False,
+        initial='',
+        widget=forms.Select(attrs={'class': 'form-control'})
+    )
 
 
 class NewspaperCreateForm(forms.ModelForm):
