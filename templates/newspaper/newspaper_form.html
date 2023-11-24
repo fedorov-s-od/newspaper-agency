@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layouts/base.html" %}
 {% load crispy_forms_filters %}
 
 {% block content %}
@@ -6,7 +6,9 @@
   <form action="" method="post" novalidate>
     {% csrf_token %}
     {{ form|crispy }}
+
     <a href="{{ request.META.HTTP_REFERER }}" class="btn btn-secondary">Back</a>
     <input type="submit" value="Submit" class="btn btn-primary">
   </form>
 {% endblock %}
+

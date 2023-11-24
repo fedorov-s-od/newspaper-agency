@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en" itemscope itemtype="http://schema.org/WebPage">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="/static/assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="/static/assets/img/favicon.png">
+
+  <title>Newspaper Agency</title>
+
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="/static/assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="/static/assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="/static/assets/css/material-kit.css?v=3.0.0" rel="stylesheet" />
+
+</head>
+<body class="presentation-page bg-gray-200">
+
+  {% include 'includes/navigation.html' %}
+
+  <header class="header-2">
+    <div class="page-header min-vh-75 relative" style="background-image: url('/static/assets/img/bg1.jpg')">
+      <span class="mask bg-gradient-primary opacity-4"></span>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-7 text-center mx-auto">
+            <h1 class="text-white pt-3 mt-n5">Newspaper Agency</h1>
+            <p class="lead text-white mt-3">This is innovative project that offers a user-centric approach to news information. <br /> We create a unique experience by combining personalized news curation with cutting-edge technologies, ensuring that each user receives relevant and meaningful information tailored to their interests. </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="card card-body blur shadow-blur mx-3 mx-md-4 mt-n6">
+    <section class="pt-3 pb-4" id="count-stats">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-9 mx-auto py-3">
+            <div class="row">
+              <div class="col-md-4 position-relative">
+                <div class="p-3 text-center">
+                  <h1 class="text-gradient text-primary"><span id="state1" countTo="{{ num_newspapers }}"></span></h1>
+                  <h5 class="mt-3">Newspapers</h5>
+                </div>
+                <hr class="vertical dark">
+              </div>
+              <div class="col-md-4 position-relative">
+                <div class="p-3 text-center">
+                  <h1 class="text-gradient text-primary"> <span id="state2" countTo="{{ num_redactors }}"></span></h1>
+                  <h5 class="mt-3">Redactors</h5>
+                </div>
+                <hr class="vertical dark">
+              </div>
+              <div class="col-md-4">
+                <div class="p-3 text-center">
+                  <h1 class="text-gradient text-primary" id="state3" countTo="{{ num_topics }}"></h1>
+                  <h5 class="mt-3">Topics</h5>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="my-5 py-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-4 ms-auto me-auto p-lg-4 mt-lg-0 mt-4">
+            <div class="rotating-card-container">
+              <div class="card card-rotate card-background card-background-mask-primary shadow-primary mt-md-0 mt-5">
+                <div class="front front-background" style="background-image: url(https://images.unsplash.com/photo-1569683795645-b62e50fbf103?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80); background-size: cover;">
+                  <div class="card-body py-7 text-center">
+                    <i class="material-icons text-white text-4xl my-3">touch_app</i>
+                    <h3 class="text-white">Join Our <br /> Editorial Team</h3>
+                    <p class="text-white opacity-8">Become a part of our dynamic editorial team, where your voice contributes to crafting compelling narratives and influencing perspectives globally.</p>
+                  </div>
+                </div>
+                <div class="back back-background" style="background-image: url(https://images.unsplash.com/photo-1498889444388-e67ea62c464b?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1365&q=80); background-size: cover;">
+                  <div class="card-body pt-7 text-center">
+                    <h3 class="text-white">Write your first newspaper!</h3>
+                    <p class="text-white opacity-8"> Begin your journey into expression by crafting your inaugural subject, sharing your thoughts, and initiating engaging conversations in a space that values your unique perspective.</p>
+                    <a href="{% url 'newspaper:newspaper-create' %}" class="btn btn-white btn-sm w-50 mx-auto mt-3">write newspaper</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 ms-auto">
+            <div class="row justify-content-start">
+              <div class="col-md-6">
+                <div class="info">
+                  <h5 class="font-weight-bolder mt-3">Politics</h5>
+                  <p class="pe-5">The intricate dynamics of governance, power, and decision-making that shape societies on a local and global scale.</p>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="info">
+                  <h5 class="font-weight-bolder mt-3">Business</h5>
+                  <p class="pe-3">The economic ecosystem where enterprises strategize, trade, and innovate to meet market demands and generate profits.</p>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-start mt-5">
+              <div class="col-md-6 mt-3">
+                <h5 class="font-weight-bolder mt-3">Art</h5>
+                <p class="pe-5">The expressive and diverse realm where creativity merges with culture, enabling the exploration and communication of human experiences through various mediums.</p>
+              </div>
+              <div class="col-md-6 mt-3">
+                <div class="info">
+                  <h5 class="font-weight-bolder mt-3">Trade</h5>
+                  <p class="pe-3">The exchange of goods and services, pivotal in fostering connections between economies and cultures, driving growth and collaboration worldwide.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <section class="py-5">
+      <div class="container">
+        <div class="row">
+          <div class="row text-center my-sm-5 mt-5">
+            <div class="col-lg-6 mx-auto">
+              <h2 class="">Choose any topic for reading</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row mt-4">
+              <div class="col-md-6">
+                <a href="/about-us.html">
+                  <div class="card move-on-hover">
+                    <img class="w-100" src="https://cdn.wallpapersafari.com/50/60/uIXhjf.jpg" alt="aboutus">
+                  </div>
+                  <div class="mt-2 ms-2">
+                    <h6 class="mb-0">Politics</h6>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-6 mt-md-0 mt-5">
+                <a href="/contact-us.html">
+                  <div class="card move-on-hover">
+                    <img class="w-100" src="https://d1csarkz8obe9u.cloudfront.net/posterpreviews/business-wallpaper-design-template-fc437fecbcbaa96a4cdd3d0d6ae7bc36_screen.jpg?ts=1583140904" alt="contacus">
+                  </div>
+                  <div class="mt-2 ms-2">
+                    <h6 class="mb-0">Business</h6>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-6 mt-md-3 mt-6">
+                <a href="/sign-in.html">
+                  <div class="card move-on-hover">
+                    <img class="w-100" src="https://wallpapers.com/images/featured/art-dajgwkpkb3im2q3u.jpg" alt="signin">
+                  </div>
+                  <div class="mt-2 ms-2">
+                    <h6 class="mb-0">Art</h6>
+                  </div>
+                </a>
+              </div>
+              <div class="col-md-6 mt-md-3 mt-6">
+                <a href="/author.html">
+                  <div class="card move-on-hover">
+                    <img class="w-100" src="https://c0.wallpaperflare.com/preview/636/118/480/commerce-africa-asia-australia.jpg" alt="author">
+                  </div>
+                  <div class="mt-2 ms-2">
+                    <h6 class="mb-0">Trade</h6>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>    
+  </div>
+
+  <footer class="footer pt-5 mt-5">
+    <div class="container">
+      <div class="text-center">
+        <p class="text-dark my-4 text-sm font-weight-normal">
+          &copy; <a href="https://bit.ly/3fKQZaL" target="_blank">Newspaper Agency</a> - 2023
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!--   Core JS Files   -->
+  <script src="/static/assets/js/core/popper.min.js" type="text/javascript"></script>
+  <script src="/static/assets/js/core/bootstrap.min.js" type="text/javascript"></script>
+  <script src="/static/assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <!--  Plugin for TypedJS, full documentation here: https://github.com/inorganik/CountUp.js -->
+  <script src="/static/assets/js/plugins/countup.min.js"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/dixonandmoe/rellax -->
+  <script src="/static/assets/js/plugins/rellax.min.js"></script>
+  <!--  Plugin for TiltJS, full documentation here: https://gijsroge.github.io/tilt.js/ -->
+  <script src="/static/assets/js/plugins/tilt.min.js"></script>
+  <!--  Plugin for Selectpicker - ChoicesJS, full documentation here: https://github.com/jshjohnson/Choices -->
+  <script src="/static/assets/js/plugins/choices.min.js"></script>
+  <!--  Plugin for Parallax, full documentation here: https://github.com/wagerfield/parallax  -->
+  <script src="/static/assets/js/plugins/parallax.min.js"></script>
+  <!-- Control Center for Material UI Kit: parallax effects, scripts for the example pages etc -->
+  <!--  Google Maps Plugin    -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDTTfWur0PDbZWPr7Pmq8K3jiDp0_xUziI"></script>
+  <script src="/static/assets/js/material-kit.min.js?v=3.0.0" type="text/javascript"></script>
+  <script type="text/javascript">
+    if (document.getElementById('state1')) {
+      const countUp = new CountUp('state1', document.getElementById("state1").getAttribute("countTo"));
+      if (!countUp.error) {
+        countUp.start();
+      } else {
+        console.error(countUp.error);
+      }
+    }
+    if (document.getElementById('state2')) {
+      const countUp1 = new CountUp('state2', document.getElementById("state2").getAttribute("countTo"));
+      if (!countUp1.error) {
+        countUp1.start();
+      } else {
+        console.error(countUp1.error);
+      }
+    }
+    if (document.getElementById('state3')) {
+      const countUp2 = new CountUp('state3', document.getElementById("state3").getAttribute("countTo"));
+      if (!countUp2.error) {
+        countUp2.start();
+      } else {
+        console.error(countUp2.error);
+      };
+    }
+  </script>
+</body>
+
+</html>
