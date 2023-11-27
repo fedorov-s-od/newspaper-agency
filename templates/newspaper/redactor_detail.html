@@ -5,12 +5,12 @@
 <div class="container">
     <div class="col">
         <div class="m-3">
-            <h1 class="text-center mb-5">{{ redactor.username }}</h1>
+            <h1 class="text-center mb-5">{{ redactor.first_name }} {{ redactor.last_name }}</h1>
 
             <p>First Name: {{ redactor.first_name|default:"-" }}</p>
             <p>Last Name: {{ redactor.last_name|default:"-" }}</p>
             <p>Email: {{ redactor.email|default:"-" }}</p>
-            <p>Experiens: {{ redactor.years_of_experience }}</p>
+            <p>Experience: {{ redactor.years_of_experience }}</p>
 
             <hr>
             <h3>Newspapers</h3>

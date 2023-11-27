@@ -11,21 +11,23 @@ class Newspaper(models.Model):
     publishers = models.ManyToManyField('Redactor', related_name='newspapers')
 
     @cached_property
-    def publishers_to_str(self):
-        return ", ".join(publisher.username for publisher in self.publishers.all())
+    def publishers_to_str(self) -> str:
+        return ', '.join(
+            publisher.username for publisher in self.publishers.all()
+        )
 
     @cached_property
-    def content_to_html(self):
-        return "<br />".join(self.content.split("\\n"))
+    def content_to_html(self) -> str:
+        return '<br />'.join(self.content.split('\\n'))
 
-    def __str__(self):
-        return f"{self.title} ({self.published_date})"
+    def __str__(self) -> str:
+        return f'{self.title} ({self.published_date})'
 
 
 class Topic(models.Model):
     name = models.CharField(max_length=50)
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
