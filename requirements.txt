@@ -3,10 +3,11 @@ black==23.11.0
 bootstrap4==0.1.0
 click==8.1.7
 colorama==0.4.6
-crispy-bootstrap4==2023.1
+crispy-bootstrap4==2022.1
 dj-database-url==2.1.0
 Django==4.1
-django-crispy-forms==2.1
+django-crispy-forms==2.0
+gunicorn==21.2.0
 mypy-extensions==1.0.0
 packaging==23.2
 pathspec==0.11.2
@@ -15,3 +16,4 @@ psycopg2-binary==2.9.9
 python-dotenv==1.0.0
 sqlparse==0.4.4
 tzdata==2023.3
+whitenoise==6.6.0
