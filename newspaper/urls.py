@@ -1,52 +1,73 @@
-from django.urls import path, re_path
+from django.urls import path
 
 from .views import (
-    index, NewspaperListView, NewspaperCreateView, NewspaperDetailView,
-    NewspaperDeleteView, NewspaperUpdateView, pages, login_view, register_user,
-    TopicListView, RedactorDetailView, RedactorListView, RedactorUpdateView
+    index,
+    NewspaperListView,
+    NewspaperCreateView,
+    NewspaperDetailView,
+    NewspaperDeleteView,
+    NewspaperUpdateView,
+    login_view,
+    register_user,
+    TopicListView,
+    RedactorDetailView,
+    RedactorListView,
+    RedactorUpdateView,
 )
 
 from django.contrib.auth.views import LogoutView
 
 
 urlpatterns = [
-    path("", index, name="index"),
+    path('', index, name='index'),
     path(
-        "newspapers/",
+        'newspapers/',
         NewspaperListView.as_view(),
-        name="newspaper-list",
+        name='newspaper-list',
     ),
     path(
-        "topics/",
+        'topics/',
         TopicListView.as_view(),
-        name="topic-list",
+        name='topic-list',
     ),
     path(
-        "redactors/",
+        'redactors/',
         RedactorListView.as_view(),
-        name="redactor-list",
+        name='redactor-list',
     ),
     path(
-        "redactors/<int:pk>/",
+        'redactors/<int:pk>/',
         RedactorDetailView.as_view(),
-        name="redactor-detail",
+        name='redactor-detail',
     ),
     path(
-        "profile/",
+        'profile/',
         RedactorUpdateView.as_view(),
-        name="profile",
+        name='profile',
     ),
     path(
-        "newspaper/create/",
+        'newspaper/create/',
         NewspaperCreateView.as_view(),
-        name="newspaper-create",
+        name='newspaper-create',
     ),
-    path("newspapers/<int:pk>/", NewspaperDetailView.as_view(), name="newspaper-detail"),
-    path("newspapers/<int:pk>/update/", NewspaperUpdateView.as_view(), name="newspaper-update"),
-    path("newspapers/<int:pk>/delete/", NewspaperDeleteView.as_view(), name="newspaper-delete"),
-    path('login/', login_view, name="login"),
-    path('register/', register_user, name="register"),
-    path("logout/", LogoutView.as_view(), name="logout")
+    path(
+        'newspapers/<int:pk>/',
+        NewspaperDetailView.as_view(),
+        name='newspaper-detail'
+    ),
+    path(
+        'newspapers/<int:pk>/update/',
+        NewspaperUpdateView.as_view(),
+        name='newspaper-update',
+    ),
+    path(
+        'newspapers/<int:pk>/delete/',
+        NewspaperDeleteView.as_view(),
+        name='newspaper-delete',
+    ),
+    path('login/', login_view, name='login'),
+    path('register/', register_user, name='register'),
+    path('logout/', LogoutView.as_view(), name='logout'),
 ]
 
-app_name = "newspaper"
+app_name = 'newspaper'

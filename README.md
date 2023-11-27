@@ -27,11 +27,10 @@ python manage.py runserver
 
 ## Demo
 
-![Website interface] ![Снимок экрана 2023-11-24 102405.png](..%2F..%2F..%2FPictures%2FScreenshots%2F%D1%ED%E8%EC%EE%EA%20%FD%EA%F0%E0%ED%E0%202023-11-24%20102405.png)
+![Website interface](demo.png)
 
 
-
-"# newspaper-agency"
+# newspaper-agency
 `python manage.py loaddata db_data.json`
 
 - After loading data from fixture you can use following superuser (or create another one by yourself):
